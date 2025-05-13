@@ -7,14 +7,15 @@ param reserved bool = true
 param sku object
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
-  name: name
   location: location
   tags: tags
+  name: name
   sku: sku
   kind: kind
   properties: {
     reserved: reserved
   }
 }
+
 
 output id string = appServicePlan.id

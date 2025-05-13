@@ -36,9 +36,9 @@ param ftpsState string = 'FtpsOnly'
 param healthCheckPath string = ''
 
 resource appService 'Microsoft.Web/sites@2022-03-01' = {
-  name: name
   location: location
   tags: tags
+  name: name
   kind: kind
   properties: {
     serverFarmId: appServicePlanId
@@ -60,6 +60,8 @@ resource appService 'Microsoft.Web/sites@2022-03-01' = {
     clientAffinityEnabled: clientAffinityEnabled
     httpsOnly: true
   }
+}
+
 
   identity: { type: managedIdentity ? 'SystemAssigned' : 'None' }
 
